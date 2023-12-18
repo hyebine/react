@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import navijson from './data/gnb.json'
+import navijson from './data/gnb.json';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -14,17 +16,19 @@ function App() {
         {
           navijson.map((v, idx) => {
             return (
-              <>
-                <li onClick={function () { settab(idx); }}>{v.hbname}</li>
-                {tabvar === idx && <div>
-                  {idx}
-                </div>
-                }
-              </>
+              <li onClick={function () { settab(idx); }}>{v.hbname}</li>
             )
           })
         }
       </ul>
+      <div className='border py-5 bg-dark text-white'>
+        {
+          navijson[tabvar] && <p>
+            <img src={navijson[tabvar].src } alt={navijson[tabvar].alt} />
+            <strong>{navijson[tabvar].hbname}</strong>
+          </p>
+        }
+      </div>
     </div>
   );
 }
