@@ -1,0 +1,33 @@
+#faq li {
+  list-style: none;
+}
+
+#faq li div {
+  background-color: #ccc;
+  padding:0 2rem;
+  font-size: .85em; 
+  /* 13.6px */
+  max-height: 0;
+  overflow: hidden;
+  transition: .5s;
+}
+
+#faq li.act div {
+  max-height: 200px;
+  /* 하나만 보이기 */
+
+}
+
+#faq li div::after {
+  content: "";
+  display: block;
+  padding: 2rem 0 0;
+}
+
+
+#faq li div::before {
+  content: "";
+  display: block;
+  padding: 2rem 0 0;
+}
+
