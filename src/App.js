@@ -6,11 +6,15 @@ function App() {
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const [emailinfo, emailupdate] = useState("");
-  const [passwordinfo, passupdate] = useState("");
+  const [emailinfo, emailupdate] = useState({  //글쓰기는 obj 목록이면 [{}]
+    email: "",
+    password: "",
+
+  });
+
 
   const submitClick = () => {
-    alert(`아이디는 ${emailinfo}이고 패스워드는 ${passwordinfo}로 기입하셨습니다.`);
+    alert(`아이디는 ${emailinfo.email}이고 패스워드는 ${emailinfo.password}로 기입하셨습니다.`);
   }
 
   return (
@@ -24,10 +28,14 @@ function App() {
               Email
             </label><br />
 
-            <input type="text" name='email' value={emailinfo} ref={emailRef}
+            <input type="text" name='email' value={emailinfo.email} ref={emailRef}
               onChange={(e) => {
-                emailupdate(e.target.value); //랜더링
-                console.log(emailRef.current.value);
+                emailupdate({
+                  ...emailinfo,
+                  email: e.target.value,
+
+                });
+
               }} />
           </li>
 
@@ -35,9 +43,13 @@ function App() {
             <label htmlFor='password'>
               Password
             </label><br />
-            <input type="password" name='password' value={passwordinfo} ref={passwordRef}
+            <input type="password" name='password' value={emailinfo.password} ref={passwordRef}
               onChange={(e) => {
-                passupdate(e.target.value);
+                emailupdate({
+                  ...emailinfo,
+                  password: e.target.value,
+                });
+
               }} />
           </li>
         </ul>
