@@ -1,0 +1,20 @@
+@mixin fontsetting {
+  font-family: "Noto sans KR";
+  font-size: "22px";
+  line-height: 1.8;
+  font-weight: 100;
+}
+
+li {
+  list-style: none;
+}
+
+.contact * {
+  margin: 0;
+  padding: 0;
+  @include fontsetting;
+
+}
+
+
+
